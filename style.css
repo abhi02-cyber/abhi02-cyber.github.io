@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(90deg, red, blue);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  background: white;
+  color: red;
+  padding: 10px 20px;
+  margin-top: 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+section {
+  padding: 20px;
+}
+
+section.blue {
+  background: #f0f6ff;
+}
+
+h2 {
+  color: #0033cc;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.map iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
+
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  }
