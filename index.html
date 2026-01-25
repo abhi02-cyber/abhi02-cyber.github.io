@@ -119,6 +119,21 @@ index.html
   
 
 <script src="script.js"></script>
+  <script>
+  const slider = document.getElementById("programSlider");
+
+  let scrollAmount = 0;
+  const slideStep = 300;
+
+  setInterval(() => {
+    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+      slider.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      slider.scrollBy({ left: slideStep, behavior: "smooth" });
+    }
+  }, 3000); // 3 second me slide
+  </script>
+  
 </body>
 </html>
 
