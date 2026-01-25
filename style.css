@@ -88,3 +88,26 @@ footer {
 .whatsapp-float:hover {
   background-color: #1ebc59;
   }
+.program-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.program-card {
+  min-width: 250px;
+  background: #ff7a7a;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.program-card a {
+  display: inline-block;
+  margin-top: 10px;
+  background: white;
+  color: black;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  }
