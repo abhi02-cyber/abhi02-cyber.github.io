@@ -111,3 +111,11 @@ footer {
   border-radius: 6px;
   text-decoration: none;
   }
+.map {
+  margin: 30px 0;
+}
+
+.map iframe {
+  border-radius: 10px;
+  }
+  
