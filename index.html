@@ -232,6 +232,16 @@ document.addEventListener("DOMContentLoaded", function () {
   startAutoScroll();
 });
   </script>
+  <script>
+  const track = document.querySelector(".teacher-track");
+  const cards = Array.from(track.children);
+
+  cards.forEach(card => {
+    const clone = card.cloneNode(true);
+    track.appendChild(clone);
+  });
+  </script>
+  
   
   
   
