@@ -245,32 +245,46 @@ document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".teacher-slider");
   const track = document.querySelector(".teacher-track");
 
-  // clone cards once
+  // Clone cards (sirf ek baar)
   const cards = [...track.children];
   cards.forEach(card => {
     track.appendChild(card.cloneNode(true));
   });
 
-  let scrollSpeed = 0.5; // speed control
-  let scrollPos = 0;
+  let scrollSpeed = 0.4;
+  let isUserTouching = false;
 
   function autoScroll() {
-    scrollPos += scrollSpeed;
-    slider.scrollLeft = scrollPos;
+    if (!isUserTouching) {
+      slider.scrollLeft += scrollSpeed;
 
-    // jab half tak pahuch jaye, wapas start
-    if (scrollPos >= track.scrollWidth / 2) {
-      scrollPos = 0;
+      if (slider.scrollLeft >= track.scrollWidth / 2) {
+        slider.scrollLeft = 0;
+      }
     }
-
     requestAnimationFrame(autoScroll);
   }
 
+  // Touch events (MOBILE)
+  slider.addEventListener("touchstart", () => {
+    isUserTouching = true;
+  });
+
+  slider.addEventListener("touchend", () => {
+    isUserTouching = false;
+  });
+
+  // Mouse events (DESKTOP)
+  slider.addEventListener("mouseenter", () => {
+    isUserTouching = true;
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    isUserTouching = false;
+  });
+
   autoScroll();
   </script>
-  
-  
-  
   
   
 </body>
