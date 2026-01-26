@@ -376,6 +376,7 @@ footer {
   .teacher-slider {
   width: 100%;
   overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
 }
 
 .teacher-track {
