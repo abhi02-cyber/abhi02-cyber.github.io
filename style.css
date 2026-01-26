@@ -366,14 +366,11 @@ footer {
   }
   min-height: 340px;
 }
-.teacher-slider {
-  width: 100%;
-  overflow: hidden;
-}
 
 .teacher-track {
   display: flex;
   gap: 20px;
+  width:max-content;
 }
 
 .teacher-card {
@@ -381,31 +378,6 @@ footer {
   flex-shrink: 0;
     }
 
-.teacher-slider {
-  width: 100%;
-  overflow-x: auto;              /* ⭐ MOST IMPORTANT */
-  -webkit-overflow-scrolling: touch;
-}
-
-.teacher-track {
-  display: flex;
-  gap: 20px;
-  width: max-content;            /* ⭐ makes track wide */
-}
-
-.teacher-card {
-  min-width: 250px;
-  flex-shrink: 0;
-}
-
-@keyframes scrollTeachers {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-  }
 
     
 
