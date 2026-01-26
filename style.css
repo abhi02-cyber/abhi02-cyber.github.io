@@ -363,6 +363,20 @@ footer {
   overflow: hidden;
   min-height: 340px;
 }
+.teacher-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.teacher-track {
+  display: flex;
+  gap: 20px;
+}
+
+.teacher-card {
+  min-width: 250px;
+  flex-shrink: 0;
+    }
 
 
 
