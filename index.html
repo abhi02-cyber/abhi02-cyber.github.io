@@ -209,8 +209,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isUserInteracting) {
         slider.scrollLeft += 1;
 
-        if (slider.scrollLeft >= track.scrollWidth / 2) {
-          slider.scrollLeft = 0;
+        if (slider.scrollLeft >= track.scrollWidth - slider.clientWidth) {
+  slider.scrollLeft = 0;
+        }
+        
         }
       }
     }, 20);
