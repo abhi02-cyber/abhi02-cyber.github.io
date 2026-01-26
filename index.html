@@ -189,64 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 2500);
 });
     </script>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.querySelector(".teacher-slider");
-  const track = document.querySelector(".teacher-track");
-
-  if (!slider || !track) return;
-
-  /* 1️⃣ Clone cards ONCE */
-  const cards = [...track.children];
-  cards.forEach(card => track.appendChild(card.cloneNode(true)));
-
-  let autoScroll;
-  let isUserInteracting = false;
-
-  function startAutoScroll() {
-    stopAutoScroll(); // safety
-    autoScroll = setInterval(() => {
-      if (!isUserInteracting) {
-        slider.scrollLeft += 1;
-
-        if (slider.scrollLeft >= track.scrollWidth - slider.clientWidth) {
-  slider.scrollLeft = 0;
-        }
-        
-        }
-      }
-    }, 20);
-  }
-
-  function stopAutoScroll() {
-    clearInterval(autoScroll);
-  }
-
-  /* 2️⃣ TOUCH SUPPORT (mobile) */
-  slider.addEventListener("touchstart", () => {
-    isUserInteracting = true;
-    stopAutoScroll();
-  });
-
-  slider.addEventListener("touchend", () => {
-    isUserInteracting = false;
-    startAutoScroll();
-  });
-
-  /* 3️⃣ MOUSE SUPPORT (desktop) */
-  slider.addEventListener("mouseenter", () => {
-    isUserInteracting = true;
-    stopAutoScroll();
-  });
-
-  slider.addEventListener("mouseleave", () => {
-    isUserInteracting = false;
-    startAutoScroll();
-  });
-
-  startAutoScroll();
-});
-  </script>
+  
   <script>
   const slider = document.querySelector(".teacher-slider");
   const track = document.querySelector(".teacher-track");
