@@ -377,14 +377,12 @@ footer {
   width: 100%;
   overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
+padding-bottom: 10px;
 }
 
-.teacher-track {
-  display: flex;
-  flex-direction: row;
-  width: max-content;
-  gap: 20px;
-}
+.teacher-slider::-webkit-scrollbar {
+  display: none;
+    }
 
 .teacher-card {
   width: 260px;
