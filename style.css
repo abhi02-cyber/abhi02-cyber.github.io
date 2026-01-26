@@ -360,7 +360,10 @@ footer {
 }
 .teacher-slider {
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  }
   min-height: 340px;
 }
 .teacher-slider {
