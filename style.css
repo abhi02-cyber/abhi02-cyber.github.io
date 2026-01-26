@@ -373,6 +373,22 @@ footer {
   font-size: 13px;
   color: #555;
 }
+  .teacher-slider {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.teacher-track {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  gap: 20px;
+}
+
+.teacher-card {
+  width: 260px;
+  flex-shrink: 0;
+    }
   
   
 
