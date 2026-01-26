@@ -245,46 +245,44 @@ document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".teacher-slider");
   const track = document.querySelector(".teacher-track");
 
-  // Clone cards (sirf ek baar)
+  // clone cards once
   const cards = [...track.children];
   cards.forEach(card => {
     track.appendChild(card.cloneNode(true));
   });
 
-  let scrollSpeed = 0.4;
-  let isUserTouching = false;
+  let autoScrollInterval;
+  const speed = 1; // px
+  const delay = 20; // ms
 
-  function autoScroll() {
-    if (!isUserTouching) {
-      slider.scrollLeft += scrollSpeed;
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+      slider.scrollLeft += speed;
 
       if (slider.scrollLeft >= track.scrollWidth / 2) {
         slider.scrollLeft = 0;
       }
-    }
-    requestAnimationFrame(autoScroll);
+    }, delay);
   }
 
-  // Touch events (MOBILE)
-  slider.addEventListener("touchstart", () => {
-    isUserTouching = true;
-  });
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
 
-  slider.addEventListener("touchend", () => {
-    isUserTouching = false;
-  });
+  // START auto scroll
+  startAutoScroll();
 
-  // Mouse events (DESKTOP)
-  slider.addEventListener("mouseenter", () => {
-    isUserTouching = true;
-  });
+  /* ===== TOUCH SUPPORT (REAL FIX) ===== */
 
-  slider.addEventListener("mouseleave", () => {
-    isUserTouching = false;
-  });
+  slider.addEventListener("touchstart", stopAutoScroll, { passive: true });
+  slider.addEventListener("touchmove", stopAutoScroll, { passive: true });
+  slider.addEventListener("touchend", startAutoScroll);
 
-  autoScroll();
-  </script>
+  /* ===== DESKTOP SUPPORT ===== */
+  slider.addEventListener("mouseenter", stopAutoScroll);
+  slider.addEventListener("mouseleave", startAutoScroll);
+                          </script>
+  
   
   
 </body>
