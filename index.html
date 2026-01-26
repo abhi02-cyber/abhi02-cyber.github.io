@@ -190,50 +190,63 @@ document.addEventListener("DOMContentLoaded", function () {
 });
     </script>
   <script>
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".teacher-slider");
   const track = document.querySelector(".teacher-track");
   if (!slider || !track) return;
 
-  // clone cards for infinite scroll
+  // Clone cards once
   const cards = Array.from(track.children);
   cards.forEach(card => track.appendChild(card.cloneNode(true)));
 
   let pos = 0;
-  let autoScroll = true;
+  let speed = 0.5;
+  let auto = true;
 
-  function scroll() {
-    if (autoScroll) {
-      pos += 0.6;
+  function loop() {
+    if (auto) {
+      pos += speed;
       slider.scrollLeft = pos;
-      if (pos >= track.scrollWidth / 2) pos = 0;
-    }
-    requestAnimationFrame(scroll);
-  }
-  scroll();
 
-  /* ===== TOUCH SUPPORT ===== */
+      // ✅ FIX: reset only after full original width
+      if (pos >= track.scrollWidth / 2 - slider.clientWidth) {
+        pos = 0;
+        slider.scrollLeft = 0;
+      }
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  /* ===== DESKTOP CONTROL ===== */
+  slider.addEventListener("mouseenter", () => auto = false);
+  slider.addEventListener("mouseleave", () => {
+    auto = true;
+    pos = slider.scrollLeft;
+  });
+
+  /* ===== MOBILE TOUCH CONTROL ===== */
   let startX = 0;
-  let scrollStart = 0;
+  let startScroll = 0;
 
   slider.addEventListener("touchstart", e => {
-    autoScroll = false;
+    auto = false;
     startX = e.touches[0].pageX;
-    scrollStart = slider.scrollLeft;
+    startScroll = slider.scrollLeft;
   }, { passive: true });
 
   slider.addEventListener("touchmove", e => {
     const x = e.touches[0].pageX;
-    const walk = startX - x;
-    slider.scrollLeft = scrollStart + walk;
+    slider.scrollLeft = startScroll + (startX - x);
   }, { passive: true });
 
   slider.addEventListener("touchend", () => {
-    autoScroll = true;
+    auto = true;
     pos = slider.scrollLeft;
   });
 });
-      </script>
+  </script>
+  
   
   
   
