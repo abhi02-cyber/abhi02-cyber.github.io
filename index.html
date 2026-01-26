@@ -193,35 +193,48 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".teacher-slider");
   const track = document.querySelector(".teacher-track");
+  if (!slider || !track) return;
 
-  if (!slider || !track) {
-    console.log("❌ Teacher slider elements nahi mile");
-    return;
-  }
-
-  // clone cards only once
+  // clone cards for infinite scroll
   const cards = Array.from(track.children);
-  cards.forEach(card => {
-    track.appendChild(card.cloneNode(true));
-  });
+  cards.forEach(card => track.appendChild(card.cloneNode(true)));
 
-  let scrollPos = 0;
-  let speed = 0.5;
+  let pos = 0;
+  let autoScroll = true;
 
-  function autoScroll() {
-    scrollPos += speed;
-    slider.scrollLeft = scrollPos;
-
-    if (scrollPos >= track.scrollWidth / 2) {
-      scrollPos = 0;
+  function scroll() {
+    if (autoScroll) {
+      pos += 0.6;
+      slider.scrollLeft = pos;
+      if (pos >= track.scrollWidth / 2) pos = 0;
     }
-
-    requestAnimationFrame(autoScroll);
+    requestAnimationFrame(scroll);
   }
+  scroll();
 
-  autoScroll();
+  /* ===== TOUCH SUPPORT ===== */
+  let startX = 0;
+  let scrollStart = 0;
+
+  slider.addEventListener("touchstart", e => {
+    autoScroll = false;
+    startX = e.touches[0].pageX;
+    scrollStart = slider.scrollLeft;
+  }, { passive: true });
+
+  slider.addEventListener("touchmove", e => {
+    const x = e.touches[0].pageX;
+    const walk = startX - x;
+    slider.scrollLeft = scrollStart + walk;
+  }, { passive: true });
+
+  slider.addEventListener("touchend", () => {
+    autoScroll = true;
+    pos = slider.scrollLeft;
+  });
 });
-                                        </script>
+      </script>
+  
   
   
   
