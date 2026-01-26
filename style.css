@@ -337,6 +337,24 @@ footer {
 .highlight {
   color: #4a47a3;
     }
+@media (max-width: 600px) {
+
+  .teacher-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-card {
+    width: 100%;
+    border-radius: 22px;
+    padding: 30px 20px;
+  }
+
+  .teacher-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  }
 
 
   
