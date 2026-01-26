@@ -393,6 +393,23 @@ footer {
   width: 260px;         /* fixed width zaroori */
   flex-shrink: 0;       /* ⭐ prevent collapsing */
 }
+/* ===== FINAL MOBILE FIX FOR TEACHER SLIDER ===== */
+
+.teacher-slider {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.teacher-track {
+  display: flex !important;
+  flex-direction: row !important;   /* ⭐ MOST IMPORTANT */
+  width: max-content !important;
+}
+
+.teacher-card {
+  width: 260px !important;
+  flex-shrink: 0 !important;
+}
 
     
 
