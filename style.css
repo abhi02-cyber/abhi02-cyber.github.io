@@ -378,6 +378,21 @@ footer {
   flex-shrink: 0;
     }
 
+.teacher-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.teacher-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;   /* ⭐ MOST IMPORTANT */
+}
+
+.teacher-card {
+  width: 260px;         /* fixed width zaroori */
+  flex-shrink: 0;       /* ⭐ prevent collapsing */
+}
 
     
 
