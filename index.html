@@ -241,6 +241,34 @@ document.addEventListener("DOMContentLoaded", function () {
     track.appendChild(clone);
   });
   </script>
+  <script>
+  const slider = document.querySelector(".teacher-slider");
+  const track = document.querySelector(".teacher-track");
+
+  // clone cards once
+  const cards = [...track.children];
+  cards.forEach(card => {
+    track.appendChild(card.cloneNode(true));
+  });
+
+  let scrollSpeed = 0.5; // speed control
+  let scrollPos = 0;
+
+  function autoScroll() {
+    scrollPos += scrollSpeed;
+    slider.scrollLeft = scrollPos;
+
+    // jab half tak pahuch jaye, wapas start
+    if (scrollPos >= track.scrollWidth / 2) {
+      scrollPos = 0;
+    }
+
+    requestAnimationFrame(autoScroll);
+  }
+
+  autoScroll();
+  </script>
+  
   
   
   
