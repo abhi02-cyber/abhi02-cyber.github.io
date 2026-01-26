@@ -323,60 +323,9 @@ footer {
   .student {
     align-self: flex-start;
   }
-
-  .esc-teacher-card {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .esc-teacher-card img {
-    width: 60px;
-    height: 60px;
-  }
-    }
-.highlight {
-  color: #4a47a3;
-    }
-@media (max-width: 600px) {
-
-  .teacher-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .teacher-card {
-    width: 100%;
-    border-radius: 22px;
-    padding: 30px 20px;
-  }
-
-  .teacher-card img {
-    width: 120px;
-    height: 120px;
-  }
-
-  }
-.teacher-card {
-  background: linear-gradient(180deg, #ffffff, #f8faff);
-}
-.teacher-slider {
-  width: 100%;
-  overflow: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  }
-  min-height: 340px;
-}
-
-.teacher-track {
-  display: flex;
-  gap: 20px;
-  width:max-content;
-}
-
-.teacher-card {
-  min-width: 250px;
-  flex-shrink: 0;
-    }
+/* ===============================
+   CLEAN TEACHER SLIDER (FINAL)
+   =============================== */
 
 .teacher-slider {
   width: 100%;
@@ -385,31 +334,47 @@ footer {
 
 .teacher-track {
   display: flex;
+  flex-direction: row;
   gap: 20px;
-  width: max-content;   /* ⭐ MOST IMPORTANT */
+  width: max-content;
 }
 
 .teacher-card {
-  width: 260px;         /* fixed width zaroori */
-  flex-shrink: 0;       /* ⭐ prevent collapsing */
-}
-/* ===== FINAL MOBILE FIX FOR TEACHER SLIDER ===== */
-
-.teacher-slider {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-.teacher-track {
-  display: flex !important;
-  flex-direction: row !important;   /* ⭐ MOST IMPORTANT */
-  width: max-content !important;
+  width: 260px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 18px;
+  padding: 25px 15px 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
-.teacher-card {
-  width: 260px !important;
-  flex-shrink: 0 !important;
+.teacher-card img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #1e3a8a;
+  margin-bottom: 15px;
 }
+
+.teacher-card h3 {
+  margin: 6px 0;
+  color: #111;
+}
+
+.teacher-card h4 {
+  font-size: 14px;
+  color: #ef4444;
+  margin-bottom: 6px;
+}
+
+.teacher-card span {
+  font-size: 13px;
+  color: #555;
+}
+  
+  
 
     
 
