@@ -118,21 +118,33 @@ index.html
   </a>
   
 
-<script src="script.js"></script>
-  <script>
-  const slider = document.getElementById("programSlider");
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(".program-list");
+
+  if (!slider) {
+    console.log("❌ .program-list nahi mili");
+    return;
+  }
 
   let scrollAmount = 0;
-  const slideStep = 300;
+  const scrollStep = 300;
 
   setInterval(() => {
-    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-      slider.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      slider.scrollBy({ left: slideStep, behavior: "smooth" });
+    scrollAmount += scrollStep;
+
+    if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+      scrollAmount = 0;
     }
-  }, 3000); // 3 second me slide
-  </script>
+
+    slider.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
+  }, 2500);
+});
+    </script>
+  
   
 </body>
 </html>
