@@ -361,14 +361,14 @@ footer {
 .teacher-slider {
   width: 100%;
   overflow: hidden;
-  position: relative;
+  min-height: 340px;
 }
 
 .teacher-track {
   display: flex;
   gap: 20px;
-  width: max-content;
-  animation: scrollTeachers 20s linear infinite;
+  width: fit-content;
+  animation: scrollTeachers 25s linear infinite;
 }
 
 /* Pause on hover (desktop) */
@@ -384,6 +384,23 @@ footer {
     transform: translateX(-100%);
   }
     }
+@media (max-width: 768px) {
+
+  .teacher-track {
+    animation: scrollTeachersMobile 25s linear infinite;
+  }
+
+  @keyframes scrollTeachersMobile {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+}
+
     
 
   
