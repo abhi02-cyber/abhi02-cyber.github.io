@@ -358,6 +358,32 @@ footer {
 .teacher-card {
   background: linear-gradient(180deg, #ffffff, #f8faff);
 }
+.teacher-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
 
+.teacher-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollTeachers 20s linear infinite;
+}
+
+/* Pause on hover (desktop) */
+.teacher-slider:hover .teacher-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTeachers {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+    }
+    
 
   
