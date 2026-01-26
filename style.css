@@ -305,5 +305,31 @@ footer {
     align-self: flex-start;
   }
 }
+/* FORCE clean mobile layout */
+@media (max-width: 600px) {
+
+  .esc-chat-area {
+    gap: 25px;
+  }
+
+  .esc-bubble {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .student {
+    align-self: flex-start;
+  }
+
+  .esc-teacher-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .esc-teacher-card img {
+    width: 60px;
+    height: 60px;
+  }
+    }
 
   
