@@ -189,21 +189,27 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 2500);
 });
     </script>
-  
   <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const slider = document.querySelector(".teacher-track");
-  if (!slider) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".teacher-slider");
+  const track = document.querySelector(".teacher-track");
 
-  let isTouching = false;
+  if (!slider || !track) return;
+
+  /* 1️⃣ Clone cards ONCE */
+  const cards = [...track.children];
+  cards.forEach(card => track.appendChild(card.cloneNode(true)));
+
   let autoScroll;
+  let isUserInteracting = false;
 
   function startAutoScroll() {
+    stopAutoScroll(); // safety
     autoScroll = setInterval(() => {
-      if (!isTouching) {
+      if (!isUserInteracting) {
         slider.scrollLeft += 1;
 
-        if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+        if (slider.scrollLeft >= track.scrollWidth / 2) {
           slider.scrollLeft = 0;
         }
       }
@@ -214,74 +220,33 @@ document.addEventListener("DOMContentLoaded", function () {
     clearInterval(autoScroll);
   }
 
-  // TOUCH EVENTS
+  /* 2️⃣ TOUCH SUPPORT (mobile) */
   slider.addEventListener("touchstart", () => {
-    isTouching = true;
+    isUserInteracting = true;
     stopAutoScroll();
   });
 
   slider.addEventListener("touchend", () => {
-    isTouching = false;
+    isUserInteracting = false;
     startAutoScroll();
   });
 
-  // MOUSE (desktop)
-  slider.addEventListener("mouseenter", stopAutoScroll);
-  slider.addEventListener("mouseleave", startAutoScroll);
+  /* 3️⃣ MOUSE SUPPORT (desktop) */
+  slider.addEventListener("mouseenter", () => {
+    isUserInteracting = true;
+    stopAutoScroll();
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    isUserInteracting = false;
+    startAutoScroll();
+  });
 
   startAutoScroll();
 });
   </script>
-  <script>
-  const track = document.querySelector(".teacher-track");
-  const cards = Array.from(track.children);
-
-  cards.forEach(card => {
-    const clone = card.cloneNode(true);
-    track.appendChild(clone);
-  });
-  </script>
-  <script>
-  const slider = document.querySelector(".teacher-slider");
-  const track = document.querySelector(".teacher-track");
-
-  // clone cards once
-  const cards = [...track.children];
-  cards.forEach(card => {
-    track.appendChild(card.cloneNode(true));
-  });
-
-  let autoScrollInterval;
-  const speed = 1; // px
-  const delay = 20; // ms
-
-  function startAutoScroll() {
-    autoScrollInterval = setInterval(() => {
-      slider.scrollLeft += speed;
-
-      if (slider.scrollLeft >= track.scrollWidth / 2) {
-        slider.scrollLeft = 0;
-      }
-    }, delay);
-  }
-
-  function stopAutoScroll() {
-    clearInterval(autoScrollInterval);
-  }
-
-  // START auto scroll
-  startAutoScroll();
-
-  /* ===== TOUCH SUPPORT (REAL FIX) ===== */
-
-  slider.addEventListener("touchstart", stopAutoScroll, { passive: true });
-  slider.addEventListener("touchmove", stopAutoScroll, { passive: true });
-  slider.addEventListener("touchend", startAutoScroll);
-
-  /* ===== DESKTOP SUPPORT ===== */
-  slider.addEventListener("mouseenter", stopAutoScroll);
-  slider.addEventListener("mouseleave", startAutoScroll);
-                          </script>
+  
+  
   
   
   
