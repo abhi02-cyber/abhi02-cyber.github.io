@@ -189,25 +189,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 2500);
 });
     </script>
-  
   <script>
+document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".teacher-slider");
   const track = document.querySelector(".teacher-track");
 
-  // clone cards once
-  const cards = [...track.children];
+  if (!slider || !track) {
+    console.log("❌ Teacher slider elements nahi mile");
+    return;
+  }
+
+  // clone cards only once
+  const cards = Array.from(track.children);
   cards.forEach(card => {
     track.appendChild(card.cloneNode(true));
   });
 
-  let scrollSpeed = 0.5; // speed control
   let scrollPos = 0;
+  let speed = 0.5;
 
   function autoScroll() {
-    scrollPos += scrollSpeed;
+    scrollPos += speed;
     slider.scrollLeft = scrollPos;
 
-    // jab half tak pahuch jaye, wapas start
     if (scrollPos >= track.scrollWidth / 2) {
       scrollPos = 0;
     }
@@ -216,17 +220,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   autoScroll();
-  </script>
+});
+                                        </script>
   
-  <script>
-  const track = document.querySelector(".teacher-track");
-  const cards = Array.from(track.children);
-
-  cards.forEach(card => {
-    const clone = card.cloneNode(true);
-    track.appendChild(clone);
-  });
-  </script>
+  
   
   
   
