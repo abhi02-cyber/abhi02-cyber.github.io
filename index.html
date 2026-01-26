@@ -162,22 +162,44 @@ document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".teacher-track");
   if (!slider) return;
 
-  let speed = 4.5; // slow smooth speed
+  let isTouching = false;
+  let autoScroll;
 
-  function autoScroll() {
-    slider.scrollLeft += speed;
+  function startAutoScroll() {
+    autoScroll = setInterval(() => {
+      if (!isTouching) {
+        slider.scrollLeft += 1;
 
-    // end aate hi wapas start
-    if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
-      slider.scrollLeft = 0;
-    }
-
-    requestAnimationFrame(autoScroll);
+        if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+          slider.scrollLeft = 0;
+        }
+      }
+    }, 20);
   }
 
-  autoScroll();
+  function stopAutoScroll() {
+    clearInterval(autoScroll);
+  }
+
+  // TOUCH EVENTS
+  slider.addEventListener("touchstart", () => {
+    isTouching = true;
+    stopAutoScroll();
+  });
+
+  slider.addEventListener("touchend", () => {
+    isTouching = false;
+    startAutoScroll();
+  });
+
+  // MOUSE (desktop)
+  slider.addEventListener("mouseenter", stopAutoScroll);
+  slider.addEventListener("mouseleave", startAutoScroll);
+
+  startAutoScroll();
 });
-      </script>
+  </script>
+  
   
   
 </body>
