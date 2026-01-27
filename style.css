@@ -374,20 +374,25 @@ footer {
   color: #555;
 }
   .teacher-slider {
-  width: 100%;
-  overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
-padding-bottom: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 .teacher-slider::-webkit-scrollbar {
   display: none;
-    }
+}
+
+.teacher-track {
+  display: flex;
+  gap: 20px;
+}
 
 .teacher-card {
-  width: 260px;
+  min-width: 260px;
   flex-shrink: 0;
-    }
+  }
+  
   
   
 
