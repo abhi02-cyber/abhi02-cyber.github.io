@@ -376,7 +376,6 @@ footer {
   .teacher-slider {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
 }
 
 .teacher-slider::-webkit-scrollbar {
