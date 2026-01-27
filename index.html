@@ -192,34 +192,35 @@ document.addEventListener("DOMContentLoaded", function () {
   <script>
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".teacher-slider");
-  if (!slider) return;
+  const track = document.querySelector(".teacher-track");
+  if (!slider || !track) return;
+
+  // clone once for infinite feel
+  track.innerHTML += track.innerHTML;
 
   let auto = true;
 
-  // AUTO SLIDE (desktop + mobile)
+  // AUTO SLIDE
   setInterval(() => {
     if (!auto) return;
 
-    slider.scrollBy({
-      left: 280,
-      behavior: "smooth"
-    });
+    slider.scrollLeft += 260;
 
-    // end pe aake wapas start
-    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
-      slider.scrollTo({ left: 0, behavior: "smooth" });
+    if (slider.scrollLeft >= track.scrollWidth / 2) {
+      slider.scrollLeft = 0;
     }
   }, 2500);
 
-  // DESKTOP hover
+  // DESKTOP
   slider.addEventListener("mouseenter", () => auto = false);
   slider.addEventListener("mouseleave", () => auto = true);
 
-  // MOBILE touch
+  // MOBILE
   slider.addEventListener("touchstart", () => auto = false, { passive: true });
   slider.addEventListener("touchend", () => auto = true);
 });
-  </script>
+                          </script>
+  
   
   
   
