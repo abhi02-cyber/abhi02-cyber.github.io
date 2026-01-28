@@ -602,6 +602,36 @@ footer {
   color: #1e1b4b;
   font-weight: 700;
   }
+  /* ===== RESPONSIVE FIX FOR CLASSES CARDS ===== */
+
+/* Desktop & Large screens */
+@media (min-width: 900px) {
+  .cards-container {
+    justify-content: center;
+  }
+
+  .class-card {
+    min-width: 300px;
+    max-width: 300px;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+  .class-card {
+    min-width: 85%;
+    max-width: 85%;
+    padding: 20px;
+  }
+
+  .class-card h3 {
+    font-size: 18px;
+  }
+
+  .class-card ul li {
+    font-size: 14px;
+  }
+    }
   
   
   
