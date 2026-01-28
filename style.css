@@ -583,7 +583,38 @@ footer {
   background: linear-gradient(to left, #f5f7fb, transparent);
       }
                               
-    
+    /* ===== FORCE HORIZONTAL SCROLL ===== */
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  overflow-x: scroll;     /* 👈 MUST */
+  overflow-y: hidden;
+
+  width: 100%;
+  padding: 15px;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  background: transparent;
+}
+
+/* Hide scrollbar (optional) */
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.class-card {
+  min-width: 260px;       /* 👈 MOST IMPORTANT */
+  max-width: 260px;
+
+  flex-shrink: 0;         /* 👈 MOST IMPORTANT */
+  scroll-snap-align: start;
+  }
+           
   
   
 
