@@ -342,7 +342,7 @@ footer {
 .teacher-card {
   width: 260px;
   flex-shrink: 0;
-  background: white;
+  
   color: #15803d;
   border-radius: 18px;
   padding: 25px 15px 30px;
