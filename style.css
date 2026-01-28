@@ -460,37 +460,64 @@ footer {
 .result-banner-center img {
     animation: fadeZoom 0.9s ease;
                               }
+/* ==================================
+   CLASSES SECTION (FINAL VERSION)
+   ================================== */
+
 .classes-section {
-  padding: 50px 20px;
-  text-align: center;
+  padding: 60px 15px;
   background: #f5f7fb;
+  text-align: center;
 }
 
 .classes-section h2 {
   font-size: 30px;
   color: #1e40af;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.subtitle {
+.classes-section .subtitle {
   color: #555;
+  font-size: 15px;
   margin-bottom: 35px;
 }
 
+/* ===== HORIZONTAL SCROLL CONTAINER ===== */
+
 .cards-container {
   display: flex;
-  gap: 20px;
-  justify-content: center;
-  
+  flex-direction: row;
+  gap: 18px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 10px 5px 20px;
+  width: 100%;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== CLASS CARD ===== */
+
 .class-card {
-  width: 280px;
-  padding: 22px;
-  border-radius: 14px;
+  min-width: 270px;
+  max-width: 270px;
+  padding: 22px 20px;
+
+  border-radius: 16px;
   text-align: left;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
+
+  flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
 .class-card:hover {
@@ -498,154 +525,84 @@ footer {
 }
 
 .class-card h3 {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  font-size: 20px;
 }
 
-.tag {
+.class-card .tag {
   display: inline-block;
   font-size: 13px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   font-weight: 600;
 }
 
-/* Subject list */
+/* ===== SUBJECT LIST ===== */
+
 .class-card ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .class-card ul li {
-  padding: 6px 0;
   font-size: 15px;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Color themes */
+/* ===== COLOR THEMES ===== */
+
 .primary {
   background: #ecfeff;
-  border-left: 5px solid #06b6d4;
+  border-left: 6px solid #06b6d4;
 }
 
-.primary h3 { color: #0891b2; }
-.primary .tag { background: #cffafe; color: #155e75; }
+.primary h3 {
+  color: #0891b2;
+}
+
+.primary .tag {
+  background: #cffafe;
+  color: #155e75;
+}
+
+/* Middle Classes */
 
 .middle {
   background: #f0fdf4;
-  border-left: 5px solid #22c55e;
+  border-left: 6px solid #22c55e;
 }
 
-.middle h3 { color: #15803d; }
-.middle .tag { background: #dcfce7; color: #14532d; }
+.middle h3 {
+  color: #15803d;
+}
+
+.middle .tag {
+  background: #dcfce7;
+  color: #14532d;
+}
+
+/* Board Classes */
 
 .board {
   background: #eef2ff;
-  border-left: 5px solid #4f46e5;
+  border-left: 6px solid #4f46e5;
 }
 
-.board h3 { color: #3730a3; }
-.board .tag { background: #e0e7ff; color: #1e1b4b; }
+.board h3 {
+  color: #3730a3;
+}
 
-.special {
+.board .tag {
+  background: #e0e7ff;
+  color: #1e1b4b;
   font-weight: 700;
   }
-  .cards-container {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;              /* 👈 horizontal scroll */
-  padding: 10px 5px 20px;
-  scroll-snap-type: x mandatory; /* 👈 smooth snapping */
-  -webkit-overflow-scrolling: touch; /* 👈 iOS smooth */
-}
-
-.cards-container::-webkit-scrollbar {
-  height: 6px;
-}
-
-.cards-container::-webkit-scrollbar-thumb {
-  background: #c7d2fe;
-  border-radius: 10px;
-}
-
-.class-card {
-  min-width: 260px;              /* 👈 swipe ke liye important */
-  flex-shrink: 0;
-  scroll-snap-align: start;
-                              }
-  .cards-container::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 40px;
-  height: 100%;
-  pointer-events: none;
-  background: linear-gradient(to left, #f5f7fb, transparent);
-      }
-                              
-    /* ===== FORCE HORIZONTAL SCROLL ===== */
-
-.cards-container {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-
-  overflow-x: scroll;     /* 👈 MUST */
-  overflow-y: hidden;
-
-  width: 100%;
-  padding: 15px;
-
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  background: transparent;
-}
-
-/* Hide scrollbar (optional) */
-.cards-container::-webkit-scrollbar {
-  display: none;
-}
-
-.class-card {
-  min-width: 260px;       /* 👈 MOST IMPORTANT */
-  max-width: 260px;
-
-  flex-shrink: 0;         /* 👈 MOST IMPORTANT */
-  scroll-snap-align: start;
-  }
-           
-  /* ===============================
-   FINAL CLASSES CARD SCROLLER
-   =============================== */
-
-.cards-container {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  width: 100%;
-  padding: 15px 10px;
-
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* scrollbar hide */
-.cards-container::-webkit-scrollbar {
-  display: none;
-}
-
-.class-card {
-  min-width: 260px;
-  max-width: 260px;
-
-  flex-shrink: 0;
-  scroll-snap-align: start;
-    }
+  
   
   
 
