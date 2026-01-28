@@ -481,7 +481,7 @@ footer {
   display: flex;
   gap: 20px;
   justify-content: center;
-  flex-wrap: wrap;
+  
 }
 
 .class-card {
@@ -615,6 +615,37 @@ footer {
   scroll-snap-align: start;
   }
            
+  /* ===============================
+   FINAL CLASSES CARD SCROLLER
+   =============================== */
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  width: 100%;
+  padding: 15px 10px;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* scrollbar hide */
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.class-card {
+  min-width: 260px;
+  max-width: 260px;
+
+  flex-shrink: 0;
+  scroll-snap-align: start;
+    }
   
   
 
