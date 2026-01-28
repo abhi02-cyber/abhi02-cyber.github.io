@@ -343,7 +343,7 @@ footer {
   width: 260px;
   flex-shrink: 0;
   
-  background: black ;
+  background: white ;
   border-radius: 18px;
   padding: 25px 15px 30px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
