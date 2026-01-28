@@ -460,21 +460,21 @@ footer {
 .result-banner-center img {
     animation: fadeZoom 0.9s ease;
                               }
-    .classes-section {
-  padding: 60px 20px;
+.classes-section {
+  padding: 50px 20px;
   text-align: center;
-  background: #f9fbff;
+  background: #f5f7fb;
 }
 
 .classes-section h2 {
-  font-size: 32px;
-  color: #1e3a8a;
-  margin-bottom: 8px;
+  font-size: 30px;
+  color: #1e40af;
+  margin-bottom: 10px;
 }
 
 .subtitle {
   color: #555;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .cards-container {
@@ -485,29 +485,32 @@ footer {
 }
 
 .class-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 25px;
   width: 280px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 22px;
+  border-radius: 14px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
 }
 
 .class-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
 .class-card h3 {
-  color: #2563eb;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
-.class-card p {
-  font-weight: 600;
-  color: #444;
+.tag {
+  display: inline-block;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 20px;
   margin-bottom: 15px;
+  font-weight: 600;
 }
 
+/* Subject list */
 .class-card ul {
   list-style: none;
   padding: 0;
@@ -515,14 +518,38 @@ footer {
 
 .class-card ul li {
   padding: 6px 0;
-  color: #333;
+  font-size: 15px;
 }
 
-/* Special highlight for board classes */
-.highlight {
-  border: 2px solid #2563eb;
-  background: #eef4ff;
+/* Color themes */
+.primary {
+  background: #ecfeff;
+  border-left: 5px solid #06b6d4;
+}
+
+.primary h3 { color: #0891b2; }
+.primary .tag { background: #cffafe; color: #155e75; }
+
+.middle {
+  background: #f0fdf4;
+  border-left: 5px solid #22c55e;
+}
+
+.middle h3 { color: #15803d; }
+.middle .tag { background: #dcfce7; color: #14532d; }
+
+.board {
+  background: #eef2ff;
+  border-left: 5px solid #4f46e5;
+}
+
+.board h3 { color: #3730a3; }
+.board .tag { background: #e0e7ff; color: #1e1b4b; }
+
+.special {
+  font-weight: 700;
   }
+  
     
   
   
