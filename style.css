@@ -549,7 +549,40 @@ footer {
 .special {
   font-weight: 700;
   }
-  
+  .cards-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;              /* 👈 horizontal scroll */
+  padding: 10px 5px 20px;
+  scroll-snap-type: x mandatory; /* 👈 smooth snapping */
+  -webkit-overflow-scrolling: touch; /* 👈 iOS smooth */
+}
+
+.cards-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 10px;
+}
+
+.class-card {
+  min-width: 260px;              /* 👈 swipe ke liye important */
+  flex-shrink: 0;
+  scroll-snap-align: start;
+                              }
+  .cards-container::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to left, #f5f7fb, transparent);
+      }
+                              
     
   
   
